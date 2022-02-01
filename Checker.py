@@ -12,6 +12,7 @@ def authenticate():
     twitch.set_user_authentication(token, target_scope, refresh_token)
 
 def write_user_in_chat(streamer_name):
+    """To write information in the template"""
     r = requests.get("https://tmi.twitch.tv/group/user/{}/chatters".format(streamer_name))
     parsed = json.loads(r.content)
     print(parsed['chatters']['viewers'])
